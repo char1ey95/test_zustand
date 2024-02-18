@@ -1,7 +1,11 @@
+import Counter from "./pages/Counter/Counter";
+import Tester from './pages/Tester/Tester'
+
 function App (){
     return(
         <>
-            App
+            <Counter />
+            <Tester />
         </>
     )
 }
