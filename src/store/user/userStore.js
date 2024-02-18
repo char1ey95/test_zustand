@@ -1,4 +1,4 @@
 export const createUser = (set) => ({
-    user: 0,
-    addUser: () => set((state) => ({ fishes: state.fishes + 1 })),
+    userList: ["admin"],
+    addUser: (user) => set((state) => ({ userList: [...state.userList, user] }))
   })
