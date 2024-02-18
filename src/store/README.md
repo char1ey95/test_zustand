@@ -4,12 +4,23 @@
 
 ### 첫번째 인자(함수)
 
+- 첫번쨰 콜백(setState)의 인자(createCount 함수 참조)
+    - partial
+        - ex) (state) => ({ count: state.count + 1})
+            - 객체를 반환하는 콜백함수
+            - 인자로 들어가는 state는 create의 결과물을 담고 있음
+    - replace
+        - true || false
+
+- setState 함수
+
 ```js
 // setState 함수
 const first = (partial, replace) => {
   const nextState = typeof partial === "function" ? partial(state) : partial;
   // 콜백함수의 첫번째 인자가 함수일 경우 --> 함수 실행
   // 콜백함수의 첫번째 인자가 함수가 아닐 경우 --> 인자 반환
+
   // 실행 결과 nextState에 할당
 
   // Object.is(a, b) --> a, b가 같으면 true
@@ -19,6 +30,7 @@ const first = (partial, replace) => {
     const previousState = state;
 
     /**
+     * replace는 병합 동작을 진행할 경우 인자로 받을 수 있음(true || false)
      * replace 값이 있으면, replace 없으면 nextState가 비어있는지 객체아닌지 판별
      * 
      * 위의 값의 결과로 nextState 그대로 할당 혹은 state와 nextState 합친 객체 할당
