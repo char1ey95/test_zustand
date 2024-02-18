@@ -1,9 +1,12 @@
-import { create } from "zustand";
+import { create } from 'zustand'
+import { createCount } from './count/countStore'
+import { createUser } from './user/userStore'
 
-const useStore = create((set) => ({
-    count: 0,
-    increase: () => set((state) => ({ count: state.count + 1})),
-    decrease: () => set((state) => ({ count: state.count - 1}))
-}))
-
-export default useStore;
+export const useStore = create((...set) => {
+    console.log(set);
+    return set
+    // return ({
+    //     ...createCount(...a),
+    //     ...createUser(...a),
+    // })
+})

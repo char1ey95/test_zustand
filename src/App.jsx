@@ -1,13 +1,11 @@
-// import Counter from "./pages/Counter/Counter";
-// import Tester from './pages/Tester/Tester';
-import { CreateName } from "./pages";
+import { useStore } from './store'
 
 function App (){
+    const test = useStore()
+    
     return(
         <>
-            {/* <Counter /> */}
-            {/* <Tester /> */}
-            <CreateName />
+
         </>
     )
 }
