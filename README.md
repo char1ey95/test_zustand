@@ -36,8 +36,29 @@ function Example(){
 
 ## Single Store
 
+- 단일 Store에서 상태를 관리하도록 권장
+- 만약 Store를 쪼개서 사용하고 싶다면 `Slices Pattern`사용
+
 ## Nested Object(Immer)
 
 ## Persist
+
+```js
+import { create } from 'zustand'
+import { persist, createJSONStorage } from 'zustand/middleware'
+
+export const useBearStore = create(
+    persist(
+      (set, get) => ({
+        bears: 0,
+        addABear: () => set({ bears: get().bears + 1 }),
+      }),
+      {
+        name: 'food-storage', // name of the item in the storage (must be unique)
+        storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+      },
+    ),
+  )
+```
 
 ## TypeScript
