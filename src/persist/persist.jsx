@@ -1,11 +1,14 @@
 import { useEffect } from "react";
-import { usePersistStore } from "../store"
+import { usePersistStore, useStore } from "../store"
 
 
 export default function Persist(){
     // const { isLogin, addABear } = usePersistStore();
-    const isLogin = usePersistStore((state) => state.isLogin);
-    const setIsLogin = usePersistStore((state) => state.setIsLogin);
+    // const isLogin = usePersistStore((state) => state.isLogin);
+    // const setIsLogin = usePersistStore((state) => state.setIsLogin);
+    
+    const isLogin = useStore((state) => state.isLogin);
+    const setIsLogin = useStore((state) => state.setIsLogin);
 
     useEffect(() => {
         console.log(isLogin);

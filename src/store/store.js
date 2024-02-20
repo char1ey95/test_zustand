@@ -21,9 +21,26 @@ export const usePersistStore = create(
     ),
   )
 
+const usePersistStore2 = persist(
+  (set, get) => ({
+    isLogin: false,
+    setIsLogin: () => set({ isLogin: !get().isLogin }),
+  }),
+  {
+    // 사용할 스토리지 키값
+    name: 'store-storage',
+    
+    // JSON형태로 저장
+    // callback 함수에 사용할 스토리지 종류 리턴
+    // storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+    storage: createJSONStorage(() => localStorage ),
+  },
+)
+
 export const useStore = create((...setFn) => {
 
     return ({
+        ...usePersistStore2(...setFn),
         ...createCount(...setFn),
         ...createUser(...setFn),
     })

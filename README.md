@@ -155,6 +155,9 @@ const useStore = create((...setFn) => {
 
 ## Persist
 
+- 사용하는 상태를 local 저장소에 저장하는 설정
+- create 함수에 persist를 인자로 넘겨 미들웨어로 사용한다
+
 ```js
 import { create } from 'zustand'
 import { persist, createJSONStorage } from 'zustand/middleware'
@@ -166,8 +169,8 @@ export const useBearStore = create(
         addABear: () => set({ bears: get().bears + 1 }),
       }),
       {
-        name: 'food-storage', // name of the item in the storage (must be unique)
-        storage: createJSONStorage(() => sessionStorage), // (optional) by default, 'localStorage' is used
+        name: 'storage-name',
+        storage: createJSONStorage(() => sessionStorage),
       },
     ),
   )
