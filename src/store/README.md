@@ -16,7 +16,7 @@
 
 ```js
 // setState 함수
-const first = (partial, replace) => {
+const setState = (partial, replace) => {
   const nextState = typeof partial === "function" ? partial(state) : partial;
   // 콜백함수의 첫번째 인자가 함수일 경우 --> 함수 실행
   // 콜백함수의 첫번째 인자가 함수가 아닐 경우 --> 인자 반환
@@ -54,7 +54,7 @@ const first = (partial, replace) => {
 - state 반환하는 getter
 
 ```js
-const second = () => state;
+const getState = () => state;
 ```
 
 ### 세번째 인자(객체)
@@ -62,7 +62,7 @@ const second = () => state;
 - 상태관리, 구독 등을 담고 있는 메서드 객체
 
 ```js
-const thrid = {
+const toolkit = {
     setState: (partial, replace) => {
         const nextState = typeof partial === "function" ? partial(state) : partial;
         if (!Object.is(nextState, state)) {
